@@ -1,2 +1,62 @@
 # personal-finance-tracker
 A simple personal finance tracker for viewing expenses via basic charts
+
+Python Final Project - June 28, 2025
+Expense-Tracking Financial Dashboard
+
+Project Design:
+This project is presented as a simple desktop GUI application using customtkinter that aims to help users track daily expenses, manage their monthly budget and view their categorized spending.
+
+The user interface is divided into two main sections, including a left sidebar for entering data like budget and new expenses and a main content area on the right for displaying spending history and budget summaries with a chart.
+
+Installation:
+The executable file was generated using pyinstaller with hidden imports and data files included in the onefile. noconsole was additionally included to make the GUI more noticeable in relation to the console command center. The two key dependencies are the customtkinter and matplotlib modules. It isn't necessary to include data files "Finances.csv" or "Budget.txt" unless the user desires starting expense information. "Dash.py" should compile readily as long as it has access to "Finance.py" and both customtkinter and matplotlib are installed.
+
+Specificities for generating the executable from Finance.py and Dash.py using pyinstaller include:
+--noconsole
+--onefile
+--add-data "Finances.csv;."
+--add-data "Budget.txt;."
+--hidden-import=customtkinter
+--hidden-import=matplotlib
+--hidden-import=matplotlib.pyplot
+--hidden-import=matplotlib.backends.backend_tkagg
+> Dash.py
+
+Project Functionalities:
+1. Set monthly budget
+The user inputs their budget, which is saved to a file and then displayed persistently. The user receives real-time feedback whether the budget is saved successfully or invalid.
+
+2. Add expense
+The user can enter an expense name, amount and category. The entry is then appended to a CSV file named Finances.csv. The dashboard is then updated in real time.
+
+3. View spending history
+The dashboard shows the 10 most recent expenses in a scrollable text box.
+
+4. Summarize spending
+The dashboard shows the total spent, the remaining budget, the remaining days of the current month and the calculated daily allowance. A horizontal bar chart additionally shows the total spending per category.
+
+5. Remove expense
+The remove expense button allows users to delete the most recently added expense in case of typos.
+
+Python Concepts Used:
+1. Object-Oriented Programming
+The Finance class encapsulates expense attributes.
+
+2. File Handling
+Read and write operations work with .csv and .txt files to store expenses and budgets persistently.
+
+3. Exception Handling
+Invalid input, missing files and empty fields are managed using try-catch and other common formats.
+
+4. GUI Programming
+customtkinter and tkinter arrange the layout, input fields, dropdowns and dynamic UI updates.
+
+5. Regular Expressions
+Regexes validate input patterns like names or formatted data.
+
+6. Data Visualization
+matplotlib generates bar charts showing expenses per category.
+
+7. Date and Time
+datetime and calendar modules calculate how many days are left in the month and adjust budget advice accordingly.
